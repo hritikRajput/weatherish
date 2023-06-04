@@ -6,6 +6,7 @@ import * as apiFunction from './apiFunction'
 async function processWeatherData(location){
     let weatherData = await apiFunction.getForecast(location)
     let result = {
+        "location": [weatherData.location.name, weatherData.location.country],
         "curr":{
             "condition": weatherData.current.condition.text,
             "temp": weatherData.current.temp_c,
