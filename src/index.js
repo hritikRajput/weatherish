@@ -1,6 +1,10 @@
 import './css/style.css'
 import * as apiFunction from './apiFunction'
 
+let search = document.querySelector("#search");
+let search_icon = document.querySelector("#search-icon")
+
+search_icon.addEventListener('click', getWeatherData)
 
 
 async function processWeatherData(location){
@@ -31,8 +35,12 @@ async function processWeatherData(location){
     return result;
 }
 
-async function getWeatherData(location){
+async function getWeatherData(){
+    let location = search.value
     let weatherData = await processWeatherData(location)
     console.log(weatherData);
 }
-getWeatherData("kanpur")
+
+
+
+
