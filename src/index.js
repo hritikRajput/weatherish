@@ -8,6 +8,8 @@ let search_icon = document.querySelector("#search-icon")
 
 search_icon.addEventListener('click', getWeatherData)
 
+let initialLoad = true;
+
 
 async function processWeatherData(location){
     let weatherData = await apiFunction.getForecast(location)
@@ -48,10 +50,21 @@ async function processWeatherData(location){
 }
 
 async function getWeatherData(){
-    let location = search.value
+    let location = "mumbai";
+   if(initialLoad){
+    initialLoad=false;
+   }
+   else{
+    location = search.value;
+    UI.clearUI()
+   }
+    
+    
     let weatherData = await processWeatherData(location)
     UI.updateWeatherUI(weatherData)
 }
+getWeatherData()
+
 
 
 

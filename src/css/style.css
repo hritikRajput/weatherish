@@ -1,0 +1,23 @@
+.search-container{
+    text-align: center;
+    border: 2px solid red;
+}
+
+.currentWeatherContainer{
+    display: flex;
+    justify-content: space-between;
+}
+.tempInfoContainer{
+    border: 2px solid blue;
+}
+.extraInfoContainer{
+    border: 2px solid blue;
+}
+
+.hourlyInfoContainer{
+    border: 2px solid yellow;
+    display: flex;
+}
+.hour{
+    border: 2px solid green;
+}

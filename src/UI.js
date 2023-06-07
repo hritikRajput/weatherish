@@ -91,5 +91,17 @@ function createHourlyInfo(hour){
     return hourlyInfoContainer;
 }
 
+function clearUI(){
+    while (currentWeatherContainer.firstChild) {
+        currentWeatherContainer.removeChild(currentWeatherContainer.lastChild);
+      }
+    while (hourlyWeatherContainer.firstChild) {
+        hourlyWeatherContainer.removeChild(hourlyWeatherContainer.lastChild);
+      }
+      
+      
+   
+}
 
-export {updateWeatherUI}
+
+export {updateWeatherUI, clearUI}
