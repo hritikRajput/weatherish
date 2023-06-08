@@ -2,11 +2,23 @@ import './css/style.css'
 import * as apiFunction from './apiFunction'
 import * as UI from './UI'
 
-
+//text input to search city
 let search = document.querySelector("#search");
-let search_icon = document.querySelector("#search-icon")
+//search icon next to search box
+let searchIcon = document.querySelector("#search-icon")
 
-search_icon.addEventListener('click', getWeatherData)
+// hide data labels until the data has loaded
+document.querySelector('body').style.visibility = 'hidden';
+
+// city is searched using search icon or enter key in search
+searchIcon.addEventListener('click', ()=>{
+    getWeatherData();
+})
+search.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      getWeatherData();
+    }
+  });
 
 let initialLoad = true;
 
@@ -49,21 +61,40 @@ async function processWeatherData(location){
     return result;
 }
 
-async function getWeatherData(){
-    let location = "mumbai";
-   if(initialLoad){
-    initialLoad=false;
-   }
-   else{
-    location = search.value;
-    UI.clearUI()
-   }
-    
-    
+async function getWeatherData(initialLoad=false){
+    try{
+        let location;
+    if(initialLoad){
+        location="Delhi";
+    }
+    else{
+        location = search.value;
+        console.log(location)
+    }
+    // remove error msg if previous search succeed
+    document.querySelector('.error-msg').style.visibility = 'hidden';
+
+   
     let weatherData = await processWeatherData(location)
+    UI.clearUI();
     UI.updateWeatherUI(weatherData)
+
+    //set the body to visible which was set hidden initially
+    document.querySelector('body').style.visibility = 'visible';
+    }
+    catch (err) {
+        // display input search error to user if the searched location does not return
+        // any weather data
+        document.querySelector('.error-msg').style.visibility = 'visible';
+      }
+
+    //clear search input
+    document.querySelector('#search').value = '';
+    
 }
-getWeatherData()
+
+//initial load 
+getWeatherData(initialLoad)
 
 
 
