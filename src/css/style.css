@@ -1,33 +1,115 @@
-body{
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    min-height: 100vh;
     background-image: url(../assets/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     color: beige;
 }
-.search-container{
-    text-align: center;
-    border: 2px solid red;
+.container{
+    padding: 0 6em;
 }
 
+/* search box and search icon */
+.search-container{
+    text-align: center;
+}
+.search-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 0.5em 0;
+}
+#search{
+    border: none;
+    padding: 0.5em 0.5em;
+    background: rgb(172, 169, 155);
+}
+#search-icon{
+    height: 1.2em;
+    min-width: 1.2em;
+    background-image: url(../assets/search-icon.png);
+    /* background-color: rgb(177, 48, 48); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+
+/* current weather  */
 .currentWeatherContainer{
+    padding-bottom: 1em;
     display: flex;
     justify-content: space-between;
+    gap: 1em;
 }
+
+
+/* left container tempInfoContainer */
 .tempInfoContainer{
-    border: 2px solid blue;
+    padding: 0 2em;
 }
+
+.tempInfoContainer .current-condition{
+    font-size: 4rem;
+    padding: 0.125em 0;
+}
+.tempInfoContainer .current-city,.current-time{
+    font-size: 2rem;
+    padding: 0.25em 0;
+}
+.tempInfoContainer .current-temp{
+    font-size: 5rem;
+    font-weight: 900;
+    padding: 0.1em 0;
+}
+.tempInfoContainer .minmax-temp{
+   font-size: 1.5rem;
+   padding: 0.3em 0;
+}
+
+/* right container extraInfoContainer */
 .extraInfoContainer{
-    border: 2px solid blue;
+    padding: 0 2em;
+}
+.extraInfoContainer p{
+    font-size: 1rem;
+}
+.extraInfoContainer p+p{
+    font-size: 2rem;
+}
+
+.thermo-container, .humidity-container, .visibility-container, .wind-container{
+    padding: 1em 0;
 }
 
 .hourlyInfoContainer{
-    border: 2px solid yellow;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
     display: flex;
 }
 .hour{
-    border: 2px solid green;
+    font-size: 2rem;
+    padding: 0 1em;
 }
+
+.flex-row{
+    display: flex;
+    gap: 0.8em;
+    align-items: center;
+}
+.extra-icon{
+    width: 3em;
+}
+.extra-icon img{
+    object-fit: cover;
+}
+

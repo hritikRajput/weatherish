@@ -32,10 +32,15 @@ function createTempInfo(condition, location, time, temp, mintemp, maxtemp){
     const tempInfoContainer = document.createElement("div");
     tempInfoContainer.className = "tempInfoContainer"
     const currentCondition = document.createElement("p");
+    currentCondition.classList.add("current-condition")
     const currentCity = document.createElement("p");
+    currentCity.classList.add("current-city")
     const currentTime = document.createElement("p");
+    currentTime.classList.add("current-time")
     const currentTemp = document.createElement("p");
+    currentTemp.classList.add("current-temp")
     const minmaxTemp = document.createElement("p");
+    minmaxTemp.classList.add("minmax-temp")
 
     currentCondition.textContent=condition;
     currentCity.textContent=location;
@@ -71,8 +76,11 @@ function createExtraInfo(feelsLike, humidity, visibility, windSpeed){
 function createThermoContainer(feelsLike){
     const thermoContainer = document.createElement("div")
     thermoContainer.classList.add("thermo-container")
+    thermoContainer.classList.add("flex-row")
+
     const thermoImage = document.createElement("div")
     thermoImage.classList.add("thermo-image")
+    thermoImage.classList.add("extra-icon")
     const thermoContent = document.createElement("div")
     thermoContent.classList.add("thermo-content")
 
@@ -94,8 +102,10 @@ function createThermoContainer(feelsLike){
 function createHumidityContainer(humidity){
     const humidityContainer = document.createElement("div")
     humidityContainer.classList.add("humidity-container")
+    humidityContainer.classList.add("flex-row")
     const humidityImage = document.createElement("div")
     humidityImage.classList.add("humidity-image")
+    humidityImage.classList.add("extra-icon")
     const humidityContent = document.createElement("div")
     humidityContent.classList.add("humidity-content")
 
@@ -118,8 +128,10 @@ function createHumidityContainer(humidity){
 function createVisibilityContainer(visibility){
     const visibilityContainer = document.createElement("div")
     visibilityContainer.classList.add("visibility-container")
+    visibilityContainer.classList.add("flex-row")
     const visibilityImage = document.createElement("div")
     visibilityImage.classList.add("visibility-image")
+    visibilityImage.classList.add("extra-icon")
     const visibilityContent = document.createElement("div")
     visibilityContent.classList.add("visibility-content")
 
@@ -141,8 +153,10 @@ function createVisibilityContainer(visibility){
 function createWindContainer(wind){
     const windContainer = document.createElement("div")
     windContainer.classList.add("wind-container")
+    windContainer.classList.add("flex-row")
     const windImage = document.createElement("div")
     windImage.classList.add("wind-image")
+    windImage.classList.add("extra-icon")
     const windContent = document.createElement("div")
     windContent.classList.add("wind-content")
 

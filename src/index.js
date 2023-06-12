@@ -65,7 +65,7 @@ async function getWeatherData(initialLoad=false){
     try{
         let location;
     if(initialLoad){
-        location="Delhi";
+        location="Delhi, India";
     }
     else{
         location = search.value;
