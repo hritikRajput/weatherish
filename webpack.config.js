@@ -30,6 +30,10 @@ module.exports={
                 type: 'asset/resource'
             },
             {
+                test: /\.(ico)$/,
+                use: ['file-loader?name=[name].[ext]']
+            },
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use:{
@@ -44,6 +48,7 @@ module.exports={
     plugins:[
         new HtmlWebpackPlugin({
             title: "Weatherish",
+            favicon: './src/assets/favicon.ico',
             filename: "index.html",
             template: "src/template.html"
         })
